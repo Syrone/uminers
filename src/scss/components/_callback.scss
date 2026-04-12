@@ -3,6 +3,9 @@
 .callback {
   --_rounded: 1rem;
 
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   border-radius: var(--_rounded);
 
   @include mixins.breakpoint-up(sm) {
@@ -12,7 +15,14 @@
   @include mixins.breakpoint-up(lg) {
     --_rounded: 2rem;
 
+    gap: 2.5rem;
     background-color: var(--dark-300);
+  }
+
+  &-header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
   }
 
   &-body {
@@ -140,6 +150,7 @@
       grid-column: -1 / 1;
       display: flex;
       flex-direction: column;
+      gap: 1.25rem;
       margin-top: auto;
       order: 20;
 
@@ -203,6 +214,49 @@
 
         @include mixins.breakpoint-up(lg) {
           min-width: unset;
+        }
+      }
+    }
+  }
+
+  &-picture {
+    display: flex;
+    justify-content: center;
+  }
+
+  &--product {
+    background-color: transparent;
+    background-image: linear-gradient(170deg, rgba(var(--light-rgb), .15) 0%, rgba(204, 204, 204, .15) 50%, rgba(153, 153, 153, .15) 100%);
+    padding: 2rem var(--container-offset);
+
+    @include mixins.breakpoint-up(lg) {
+      padding: 3rem 5rem 3rem 1.25rem;
+    }
+
+    .callback-body {
+      gap: 1.5rem;
+
+      @include mixins.breakpoint-up(md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .callback-form {
+      background-color: transparent;
+      padding: unset;
+
+      @include mixins.breakpoint-up(sm) {
+        grid-template-columns: 1fr;
+      }
+
+      @include mixins.breakpoint-up(md) {
+        grid-template-columns: 1fr;
+      }
+
+      &-footer {
+
+        @include mixins.breakpoint-up(md) {
+          flex-direction: row;
         }
       }
     }

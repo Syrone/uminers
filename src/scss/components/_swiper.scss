@@ -42,6 +42,7 @@
   --swiper-theme-color: var(--primary);
   --swiper-pagination-bullet-inactive-color: var(--gray);
 
+  width: auto !important;
   display: inline-flex;
   gap: var(--swiper-pagination-bullet-horizontal-gap);
   position: unset;

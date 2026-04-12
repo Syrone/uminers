@@ -1,0 +1,38 @@
+@use "mixins" as mixins;
+
+.product {
+
+  @include mixins.breakpoint-up(sm) {}
+
+  @include mixins.breakpoint-up(md) {}
+
+  @include mixins.breakpoint-up(lg) {}
+
+  &-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    @include mixins.breakpoint-up(lg) {
+      gap: 4rem;
+    }
+
+    &-header {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    &-image {
+      display: block;
+    }
+
+    .swiper {
+
+      &-slide {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

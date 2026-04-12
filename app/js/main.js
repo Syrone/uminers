@@ -21314,6 +21314,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_offcanvas_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/offcanvas.js */ "./src/js/components/offcanvas.js");
 /* harmony import */ var _components_swiper_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/swiper.js */ "./src/js/components/swiper.js");
 /* harmony import */ var _components_transfer_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/transfer.js */ "./src/js/components/transfer.js");
+/* harmony import */ var _components_video_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/video.js */ "./src/js/components/video.js");
+
 
 
 
@@ -21766,6 +21768,78 @@ document.querySelectorAll("[data-swiper]")?.forEach(container => {
   const next = container.querySelector(".swiper-button-next");
   const prev = container.querySelector(".swiper-button-prev");
   switch (type) {
+    case "gallery":
+      {
+        const nav = container.querySelector(".swiper-navigation");
+        const pagination = container.querySelector(".swiper-pagination");
+        new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](container.querySelector(".swiper"), {
+          modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.EffectCreative],
+          effect: "creative",
+          slidesPerView: 1.5,
+          spaceBetween: 32,
+          creativeEffect: {
+            limitProgress: 2,
+            prev: {
+              translate: ["-120%", 0, -200],
+              scale: 0.8,
+              opacity: 0.4
+            },
+            next: {
+              translate: ["120%", 0, -200],
+              scale: 0.8,
+              opacity: 0.4
+            }
+          },
+          loop: true,
+          grabCursor: true,
+          centeredSlides: true,
+          navigation: {
+            nextEl: next,
+            prevEl: prev
+          },
+          pagination: {
+            el: pagination,
+            clickable: true
+          },
+          breakpoints: {
+            0: {
+              slidesPerView: 1.375,
+              spaceBetween: 20
+            },
+            576: {
+              slidesPerView: 2.75,
+              spaceBetween: 32
+            },
+            992: {
+              slidesPerView: 2.9,
+              spaceBetween: 52
+            }
+          },
+          on: {
+            init() {
+              toggleNav(this);
+            },
+            resize() {
+              toggleNav(this);
+            },
+            update() {
+              toggleNav(this);
+            }
+          }
+        });
+        function toggleNav(swiper) {
+          let perView = swiper.params.slidesPerView;
+          if (perView === "auto") {
+            perView = Math.floor(swiper.width / swiper.slides[0].offsetWidth);
+          }
+          if (swiper.slides.length <= perView) {
+            nav.classList.add("d-none");
+          } else {
+            nav.classList.remove("d-none");
+          }
+        }
+        break;
+      }
     case "case":
       {
         const nav = container.querySelector(".swiper-navigation");
@@ -21773,8 +21847,9 @@ document.querySelectorAll("[data-swiper]")?.forEach(container => {
         new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](container.querySelector(".swiper"), {
           modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination],
           slidesPerView: 1.1,
-          centeredSlides: true,
           spaceBetween: 20,
+          centeredSlides: true,
+          grabCursor: true,
           navigation: {
             nextEl: next,
             prevEl: prev
@@ -21830,6 +21905,7 @@ document.querySelectorAll("[data-swiper]")?.forEach(container => {
           direction: "vertical",
           slidesPerView: 3,
           spaceBetween: 20,
+          grabCursor: true,
           navigation: {
             nextEl: next,
             prevEl: prev
@@ -21892,6 +21968,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_transfer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/transfer.js */ "./src/js/functions/transfer.js");
 
 new _functions_transfer_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+
+/***/ }),
+
+/***/ "./src/js/components/video.js":
+/*!************************************!*\
+  !*** ./src/js/components/video.js ***!
+  \************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+document.querySelectorAll("[data-video]").forEach(block => {
+  const video = block.querySelector("video");
+  const btn = block.querySelector(".video-play");
+  const poster = block.querySelector(".video-poster");
+  btn.addEventListener("click", () => {
+    video.play();
+
+    // скрываем постер и кнопку
+    poster.style.display = "none";
+    btn.style.display = "none";
+  });
+});
 
 /***/ }),
 

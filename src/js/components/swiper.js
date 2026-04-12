@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, EffectCreative } from "swiper/modules";
 
 document.querySelectorAll("[data-swiper]")?.forEach((container) => {
   const type = container.dataset.swiper;
@@ -8,6 +8,87 @@ document.querySelectorAll("[data-swiper]")?.forEach((container) => {
   const prev = container.querySelector(".swiper-button-prev");
 
   switch (type) {
+    case "gallery": {
+      const nav = container.querySelector(".swiper-navigation");
+      const pagination = container.querySelector(".swiper-pagination");
+
+      new Swiper(container.querySelector(".swiper"), {
+        modules: [Navigation, Pagination, EffectCreative],
+        effect: "creative",
+        slidesPerView: 1.5,
+        spaceBetween: 32,
+        creativeEffect: {
+          limitProgress: 2,
+
+          prev: {
+            translate: ["-120%", 0, -200],
+            scale: 0.8,
+            opacity: 0.4,
+          },
+
+          next: {
+            translate: ["120%", 0, -200],
+            scale: 0.8,
+            opacity: 0.4,
+          },
+        },
+        loop: true,
+        grabCursor: true,
+        centeredSlides: true,
+
+        navigation: {
+          nextEl: next,
+          prevEl: prev,
+        },
+        pagination: {
+          el: pagination,
+          clickable: true,
+        },
+
+        breakpoints: {
+          0: {
+            slidesPerView: 1.375,
+            spaceBetween: 20,
+          },
+          576: {
+            slidesPerView: 2.75,
+            spaceBetween: 32,
+          },
+          992: {
+            slidesPerView: 2.9,
+            spaceBetween: 52,
+          },
+        },
+
+        on: {
+          init() {
+            toggleNav(this);
+          },
+          resize() {
+            toggleNav(this);
+          },
+          update() {
+            toggleNav(this);
+          },
+        },
+      });
+
+      function toggleNav(swiper) {
+        let perView = swiper.params.slidesPerView;
+        if (perView === "auto") {
+          perView = Math.floor(swiper.width / swiper.slides[0].offsetWidth);
+        }
+
+        if (swiper.slides.length <= perView) {
+          nav.classList.add("d-none");
+        } else {
+          nav.classList.remove("d-none");
+        }
+      }
+
+      break;
+    }
+
     case "case": {
       const nav = container.querySelector(".swiper-navigation");
       const pagination = container.querySelector(".swiper-pagination");
@@ -15,8 +96,9 @@ document.querySelectorAll("[data-swiper]")?.forEach((container) => {
       new Swiper(container.querySelector(".swiper"), {
         modules: [Navigation, Pagination],
         slidesPerView: 1.1,
-        centeredSlides: true,
         spaceBetween: 20,
+        centeredSlides: true,
+        grabCursor: true,
         navigation: {
           nextEl: next,
           prevEl: prev,
@@ -78,6 +160,7 @@ document.querySelectorAll("[data-swiper]")?.forEach((container) => {
         direction: "vertical",
         slidesPerView: 3,
         spaceBetween: 20,
+        grabCursor: true,
         navigation: {
           nextEl: next,
           prevEl: prev,

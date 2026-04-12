@@ -7,3 +7,4 @@ import "./components/modal.js";
 import "./components/offcanvas.js";
 import "./components/swiper.js";
 import "./components/transfer.js";
+import "./components/video.js";

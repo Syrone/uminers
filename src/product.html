@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ru" class="page">
+  @include('partials/head.html', {title: 'UMINERS'})
+
+  <body class="page-body">
+    <div class="site-container">
+      @include('partials/header.html')
+
+      <main class="main">
+        <section class="section">
+          <div class="container">
+            @include('partials/breadcrumb.html')
+
+            <div class="product"></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <div class="video" data-video>
+              <video class="video-media" preload="none">
+                <source src="./video/demo.mp4" type="video/mp4" />
+              </video>
+
+              <picture>
+                <source srcset="./img/preview/image-1.webp" type="image/webp" />
+                <img
+                  loading="lazy"
+                  src="./img/preview/image-1.jpg"
+                  class="video-poster"
+                  width="1280"
+                  height="680"
+                  alt="Preview"
+                />
+              </picture>
+
+              <button type="button" class="btn video-play">
+                <span class="icon">
+                  <svg>
+                    <use xlink:href="img/icons/play.svg#svg-play"></use>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" data-swiper="gallery">
+          <div class="product-gallery">
+            <div class="container">
+              <div class="product-gallery-header">
+                <h2 class="product-gallery-title">Gallery</h2>
+              </div>
+            </div>
+
+            <div class="swiper container-padding">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <picture>
+                    <source
+                      srcset="./img/gallery/image-1.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      loading="lazy"
+                      src="./img/gallery/image-1.jpg"
+                      class="product-gallery-image"
+                      width="450"
+                      height="600"
+                      alt="Image"
+                    />
+                  </picture>
+                </div>
+                <div class="swiper-slide">
+                  <picture>
+                    <source
+                      srcset="./img/gallery/image-2.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      loading="lazy"
+                      src="./img/gallery/image-2.jpg"
+                      class="product-gallery-image"
+                      width="450"
+                      height="600"
+                      alt="Image"
+                    />
+                  </picture>
+                </div>
+                <div class="swiper-slide">
+                  <picture>
+                    <source
+                      srcset="./img/gallery/image-3.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      loading="lazy"
+                      src="./img/gallery/image-3.jpg"
+                      class="product-gallery-image"
+                      width="450"
+                      height="600"
+                      alt="Image"
+                    />
+                  </picture>
+                </div>
+                <div class="swiper-slide">
+                  <picture>
+                    <source
+                      srcset="./img/gallery/image-1.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      loading="lazy"
+                      src="./img/gallery/image-1.jpg"
+                      class="product-gallery-image"
+                      width="450"
+                      height="600"
+                      alt="Image"
+                    />
+                  </picture>
+                </div>
+                <div class="swiper-slide">
+                  <picture>
+                    <source
+                      srcset="./img/gallery/image-2.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      loading="lazy"
+                      src="./img/gallery/image-2.jpg"
+                      class="product-gallery-image"
+                      width="450"
+                      height="600"
+                      alt="Image"
+                    />
+                  </picture>
+                </div>
+                <div class="swiper-slide">
+                  <picture>
+                    <source
+                      srcset="./img/gallery/image-3.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      loading="lazy"
+                      src="./img/gallery/image-3.jpg"
+                      class="product-gallery-image"
+                      width="450"
+                      height="600"
+                      alt="Image"
+                    />
+                  </picture>
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="swiper-navigation">
+                <button type="button" class="btn swiper-button-prev">
+                  <span class="icon">
+                    <svg>
+                      <use xlink:href="img/icons/prev.svg#svg-prev"></use>
+                    </svg>
+                  </span>
+                </button>
+                <div class="swiper-pagination"></div>
+                <button type="button" class="btn swiper-button-next">
+                  <span class="icon">
+                    <svg>
+                      <use xlink:href="img/icons/next.svg#svg-next"></use>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <div class="callback callback--product">
+              <div class="callback-header">
+                <h2 class="callback-title">Request a consultation</h2>
+              </div>
+              <div class="callback-body">
+                <div class="callback-picture">
+                  <picture>
+                    <source
+                      srcset="./img/callback/image-2.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      loading="lazy"
+                      src="./img/callback/image-2.jpg"
+                      class="image"
+                      width="568"
+                      height="295"
+                      alt="Image"
+                    />
+                  </picture>
+                </div>
+                <form class="callback-form">
+                  <fieldset class="fieldset">
+                    <legend class="legend">Name<span>*</span></legend>
+
+                    <div class="control">
+                      <input
+                        type="text"
+                        class="input"
+                        name="name"
+                        placeholder="Enter your name"
+                        required
+                      />
+                    </div>
+                  </fieldset>
+                  <fieldset class="fieldset">
+                    <legend class="legend">Phone number<span>*</span></legend>
+
+                    <div class="control">
+                      <input
+                        type="tel"
+                        class="input"
+                        name="tel"
+                        placeholder="Enter your phone number"
+                        required
+                      />
+                    </div>
+                  </fieldset>
+                  <fieldset class="fieldset">
+                    <legend class="legend">E-mail<span>*</span></legend>
+
+                    <div class="control">
+                      <input
+                        type="tel"
+                        class="input"
+                        name="email"
+                        placeholder="Enter your E-mail"
+                        required
+                      />
+                    </div>
+                  </fieldset>
+                  <fieldset class="fieldset">
+                    <legend class="legend">
+                      Country of delivery<span>*</span>
+                    </legend>
+
+                    <div class="control">
+                      <select name="coin" data-choices>
+                        <option placeholder>- - Select coin - -</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                  </fieldset>
+
+                  <div class="callback-form-footer">
+                    <label class="toggle callback-form-agree">
+                      <input
+                        type="checkbox"
+                        class="toggle-input"
+                        name="agree"
+                        required
+                      />
+                      <div class="toggle-label">
+                        I accept the
+                        <a href="#" class="btn btn-inline text-underline"
+                          >KYC terms</a
+                        >, confirm of the provided information, and agree to the
+                        <a href="#" class="btn btn-inline text-underline"
+                          >Privacy Policy</a
+                        >
+                      </div>
+                    </label>
+
+                    <button type="submit" class="btn btn-lg btn-primary">
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      @include('partials/footer.html')
+    </div>
+
+    @include('partials/modals.html') @include('partials/offcanvases.html')
+    <div class="page-decoration"></div>
+  </body>
+</html>
