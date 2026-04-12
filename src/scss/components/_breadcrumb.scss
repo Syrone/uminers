@@ -1,0 +1,52 @@
+@use "mixins" as mixins;
+
+.breadcrumb {
+  // scss-docs-start breadcrumb-css-vars
+  --bs-breadcrumb-padding-x: 0rem;
+  --bs-breadcrumb-padding-y: 0rem;
+  --bs-breadcrumb-margin-bottom: 0rem;
+  --bs-breadcrumb-font-size: var(--fs-base);
+  --bs-breadcrumb-bg: transparent;
+  --bs-breadcrumb-divider-color: rgba(var(--text-color-rgb), .50);
+  --bs-breadcrumb-item-padding-x: .5rem;
+  --bs-breadcrumb-item-active-color: rgba(var(--text-color-rgb), .50);
+  // scss-docs-end breadcrumb-css-vars
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: var(--bs-breadcrumb-padding-y) var(--bs-breadcrumb-padding-x);
+  margin: 0 0 var(--bs-breadcrumb-margin-bottom);
+  font-size: var(--bs-breadcrumb-font-size);
+  font-weight: 500;
+  list-style: none;
+  background-color: var(--bs-breadcrumb-bg);
+  padding-block: .5rem;
+
+  @include mixins.breakpoint-up(lg) {
+    justify-content: initial;
+  }
+}
+
+.breadcrumb-item {
+  // The separator between breadcrumbs (by default, a forward-slash: "/")
+  + .breadcrumb-item {
+    padding-left: var(--bs-breadcrumb-item-padding-x);
+
+    &::before {
+      content: url("data:image/svg+xml,%3Csvg width='7' height='12' viewBox='0 0 7 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.624512 0.624024L5.42696 5.42647C5.53606 5.53557 5.53606 5.71247 5.42696 5.82158L0.624512 10.624' stroke='white' stroke-width='1.24902' stroke-linecap='round'/%3E%3C/svg%3E");
+      width: calc(.375rem + var(--bs-breadcrumb-item-padding-x));
+      float: left;
+      opacity: .5;
+    }
+  }
+
+  .btn {
+    --_fs: inherit;
+    --_fw: inherit;
+  }
+
+  &.active {
+    color: var(--bs-breadcrumb-item-active-color);
+  }
+}

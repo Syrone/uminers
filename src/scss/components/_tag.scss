@@ -1,0 +1,26 @@
+.tag {
+
+  &--author {
+    color: var(--tag-author-color);
+  }
+
+  &--bitcoin {
+    color: var(--tag-bitcoin-color);
+  }
+
+  &--blog {
+    color: var(--tag-blog-color);
+  }
+
+  &--company {
+    color: var(--tag-company-color);
+  }
+
+  &--hardware {
+    color: var(--tag-hardware-color);
+  }
+
+  &--market {
+    color: var(--tag-market-color);
+  }
+}

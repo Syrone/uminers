@@ -1,0 +1,122 @@
+@use "mixins" as mixins;
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-size: .75rem;
+  color: rgba(var(--text-color-rgb), .70);
+  background-color: rgba(var(--gray-400-rgb), .20);
+  margin: 0 var(--container-offset) .75rem;
+  border-radius: 2rem;
+  padding-block: 2rem;
+  backdrop-filter: blur(10rem);
+
+  @include mixins.breakpoint-up(sm) {
+    gap: 2rem;
+  }
+
+  @include mixins.breakpoint-up(lg) {
+    margin: unset;
+  }
+
+  &-top {
+
+    > .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+
+      @include mixins.breakpoint-up(md) {
+        grid-template-columns: .5fr 1fr;
+      }
+
+      @include mixins.breakpoint-up(lg) {
+        grid-template-columns: 21.25rem minmax(0rem, 46.875rem);
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &-bottom {
+    border-top: .0625rem solid var(--dark-200);
+    padding-top: 1.25rem;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  &-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1rem;
+
+    @include mixins.breakpoint-up(lg) {
+      grid-template-columns: repeat(4, minmax(0rem, 10rem));
+      justify-content: space-between;
+    }
+  }
+
+  .list-group {
+    gap: .5rem;
+
+    @include mixins.breakpoint-up(lg) {
+      gap: 1rem;
+    }
+
+    &-item {
+
+      &--header {
+        font-size: .75rem;
+        font-weight: 400;
+        color: rgba(var(--text-color-rgb), .50);
+        padding-top: 0;
+      }
+    }
+
+    &-link {
+      --_fs: .875rem;
+      --_fw: 500;
+    }
+
+    &--contacts {
+      gap: 1rem;
+
+      .list-group-link {
+        --_fs: 1.5rem;
+        --_icon-size: 1.75rem;
+
+        --_icon-color: rgba(var(--text-color-rgb), .50);
+
+        gap: .5rem;
+      }
+    }
+
+    &--socials {
+      gap: 1rem;
+
+      .list-group-item {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+      }
+
+      .list-group-link {
+        --_icon-size: 1.5rem;
+      }
+    }
+
+    &--text {
+      gap: .5rem;
+    }
+  }
+}

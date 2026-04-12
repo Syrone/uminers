@@ -1,0 +1,115 @@
+@use "mixins" as mixins;
+
+.header {
+  width: 100%;
+  padding-block: 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1020;
+
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    @include mixins.breakpoint-up(lg) {
+      justify-content: initial;
+      gap: 1.5rem;
+      background-color: var(--dark-700);
+      border-radius: .75rem;
+      padding: .75rem 1.25rem;
+    }
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    background-color: var(--dark-700);
+    border-radius: .25rem;
+    padding: .25rem;
+
+    @include mixins.breakpoint-up(lg) {
+      flex: 1 1;
+      justify-content: space-between;
+      gap: unset;
+      background-color: transparent;
+      border-radius: unset;
+      padding: unset;
+    }
+  }
+
+  &-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    & > * {
+
+      &:not(.header-catalog) {
+
+        @include mixins.breakpoint-down(lg) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &-actions {
+    display: flex;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+
+      @include mixins.breakpoint-up(lg) {
+
+        + .header-actions-item {
+          margin-left: 1rem;
+          border-left: .0625rem solid var(--dark-200);
+          padding-left: 1rem;
+        }
+      }
+
+      &:not(:last-child) {
+
+        @include mixins.breakpoint-down(lg) {
+          display: none;
+        }
+      }
+
+      &:last-child {
+
+        > * {
+
+          &:first-child {
+
+            @include mixins.breakpoint-down(lg) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-menu {
+    --_padding: 0rem .5rem;
+
+    @include mixins.breakpoint-up(lg) {
+      display: none;
+    }
+  }
+
+  &-catalog {
+
+    .icon {
+      @include mixins.breakpoint-down(lg) {
+        display: none;
+      }
+    }
+  }
+}

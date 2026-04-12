@@ -1,0 +1,10 @@
+.container {
+  margin: 0 auto;
+  padding: 0 var(--container-offset);
+  max-width: var(--container-width);
+}
+
+.container-padding {
+  width: 100%;
+  padding-inline: max(var(--container-offset), calc((100% - var(--content-width)) * .5));
+}

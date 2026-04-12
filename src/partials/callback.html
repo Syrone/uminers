@@ -1,0 +1,193 @@
+<section class="section">
+  <div class="container">
+    <div class="callback">
+      <div class="callback-body">
+        <div
+          data-layout-height
+          class="callback-background"
+          style="background-image: url(./img/callback/image-1.webp)"
+        >
+          <div class="callback-background-content">
+            <h2 class="callback-background-title">
+              Request a&nbsp;consultation
+            </h2>
+            <p>
+              Feel free to&nbsp;ask any questions. Our specialist
+              will&nbsp;answer your questions
+            </p>
+          </div>
+        </div>
+        <form class="callback-form">
+          <fieldset class="fieldset">
+            <legend class="legend">Name<span>*</span></legend>
+
+            <div class="control">
+              <input
+                type="text"
+                class="input"
+                name="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+          </fieldset>
+          <fieldset class="fieldset">
+            <legend class="legend">Phone number<span>*</span></legend>
+
+            <div class="control">
+              <input
+                type="tel"
+                class="input"
+                name="tel"
+                placeholder="Enter your phone number"
+                required
+              />
+            </div>
+          </fieldset>
+          <fieldset class="fieldset">
+            <legend class="legend">E-mail<span>*</span></legend>
+
+            <div class="control">
+              <input
+                type="tel"
+                class="input"
+                name="email"
+                placeholder="Enter your E-mail"
+                required
+              />
+            </div>
+          </fieldset>
+          <fieldset class="fieldset">
+            <legend class="legend">Investment amount, USD<span>*</span></legend>
+
+            <div class="fieldset-group">
+              <div class="control-group">
+                <div class="control-group-text">From</div>
+                <div class="control">
+                  <input
+                    type="text"
+                    class="input"
+                    name="from"
+                    placeholder="Enter amount"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="control-group-text">To</div>
+                <div class="control">
+                  <input
+                    type="text"
+                    class="input"
+                    name="to"
+                    placeholder="Enter amount"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="fieldset">
+            <legend class="legend">Investment amount, USD<span>*</span></legend>
+
+            <div class="control">
+              <select name="coin" data-choices>
+                <option placeholder>- - Select coin - -</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+          </fieldset>
+          <div class="callback-form-group">
+            <fieldset class="fieldset">
+              <legend class="legend">
+                Do you need a hosting service?<span>*</span>
+              </legend>
+
+              <div class="fieldset-toggle">
+                <label class="toggle toggle--radio">
+                  <input
+                    type="radio"
+                    class="toggle-input"
+                    name="hosting"
+                    required
+                  />
+                  <div class="toggle-label">Yes</div>
+                </label>
+                <label class="toggle toggle--radio">
+                  <input
+                    type="radio"
+                    class="toggle-input"
+                    name="hosting"
+                    required
+                  />
+                  <div class="toggle-label">No</div>
+                </label>
+              </div>
+            </fieldset>
+            <fieldset class="fieldset">
+              <legend class="legend">Select equipment state</legend>
+
+              <div class="fieldset-toggle">
+                <label class="toggle toggle--radio">
+                  <input type="radio" class="toggle-input" name="state" />
+                  <div class="toggle-label">New</div>
+                </label>
+                <label class="toggle toggle--radio">
+                  <input type="radio" class="toggle-input" name="state" />
+                  <div class="toggle-label">Used</div>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+          <div
+            class="callback-form-message"
+            data-transfer-target="callback-form-checkbox"
+          >
+            <fieldset class="fieldset">
+              <legend class="legend">Leave your message</legend>
+
+              <div class="control">
+                <textarea
+                  class="input"
+                  name="message"
+                  placeholder="Enter your message"
+                  rows="2"
+                ></textarea>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="callback-form-footer">
+            <label
+              class="toggle callback-form-agree"
+              data-transfer-origin="callback-form-checkbox"
+              data-transfer-breakpoint="991.98"
+              data-transfer-placement="last"
+            >
+              <input
+                type="checkbox"
+                class="toggle-input"
+                name="agree"
+                required
+              />
+              <div class="toggle-label">
+                I accept the
+                <a href="#" class="btn btn-inline text-underline">KYC terms</a>,
+                confirm of the provided information, and agree to the
+                <a href="#" class="btn btn-inline text-underline"
+                  >Privacy Policy</a
+                >
+              </div>
+            </label>
+
+            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

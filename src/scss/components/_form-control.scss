@@ -1,0 +1,115 @@
+@use "mixins" as mixins;
+
+.control,
+.fieldset {
+	position: relative;
+}
+
+.fieldset {
+  all: unset;
+  width: 100%;
+  display: block;
+
+  &-group {
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    gap: 1.25rem;
+
+    @include mixins.breakpoint-up(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &-toggle {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+}
+
+.legend {
+  all: unset;
+  display: block;
+  font-size: .75rem;
+  font-weight: 400;
+  margin-bottom: .5rem;
+  padding-inline: .75rem;
+
+  > span {
+    color: var(--required);
+  }
+}
+
+.control {
+  flex: 1 1;
+
+  &-group {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+
+    &-text {
+      font-size: .75rem;
+      font-weight: 400;
+    }
+  }
+}
+
+.input {
+	--_width: 100%;
+	--_height: auto;
+
+	--_fs: var(--fs-base);
+	--_fw: var(--fw-base);
+	--_lh: var(--lh-base);
+	--_ls: var(--ls-base);
+	--_border-width: .0625rem;
+	--_border-solid: solid;
+	--_rounded: .5rem;
+	--_padding: .625rem .75rem;
+
+	--_color: rgba(var(--gray-rgb), 1);
+	--_color-hover: rgba(var(--gray-rgb), 1);
+	--_color-active: rgba(var(--text-color-rgb), 1);
+
+  --_bg: var(--dark-300);
+  --_bg-hover: var(--dark-300);
+  --_bg-active: var(--dark-300);
+
+	--_border-color: rgba(var(--gray-rgb), .50);
+	--_border-color-hover: rgba(var(--primary-rgb), 1);
+	--_border-color-active: rgba(var(--primary-rgb), 1);
+
+	width: var(--_width);
+	min-height: var(--_height);
+	display: block;
+	font-size: var(--_fs);
+	font-weight: var(--_fw);
+	line-height: var(--_lh);
+	letter-spacing: var(--_ls, normal);
+	color: var(--_color);
+	background-color: var(--_bg);
+	border: var(--_border-width) var(--_border-solid) var(--_border-color);
+	border-radius: var(--_rounded);
+	padding: var(--_padding);
+	outline: none;
+	appearance: none;
+	transition-property: color, background, border;
+	transition-duration: var(--transition-duration);
+	transition-timing-function: var(--transition-timing-function);
+
+	&::placeholder {
+		font: inherit;
+		color: rgba(var(--gray-rgb), 1);
+	}
+
+	&:focus-visible {
+		color: var(--_color-active);
+		background-color: var(--_bg-active);
+		border-color: var(--_border-color-active);
+	}
+}
+
+textarea {
+	resize: none;
+}

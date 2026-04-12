@@ -1,0 +1,57 @@
+@use "../mixins" as mixins;
+
+.toggle {
+	--bs-form-check-bg: transparent;
+
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+	font-size: var(--fs-base);
+	color: rgba(var(--gray-rgb), .50);
+
+	@include mixins.breakpoint-up(lg) {
+		font-size: .75rem;
+	}
+
+	&-label,
+	&-input {
+		cursor: pointer;
+	}
+
+	&-label {
+	  color: rgba(var(--gray-rgb), 1);
+	}
+
+	&-input {
+		flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    appearance: none;
+		color: inherit;
+    background-color: var(--bs-form-check-bg);
+    background-image: var(--bs-form-check-bg-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.25rem;
+    border: 1px solid currentColor;
+    border-radius: .5rem;
+    color-adjust: exact;
+    print-color-adjust: exact;
+
+		&:checked {
+			--bs-form-check-bg-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"%3E%3Cpath d="M5 10l3 3 7-7" fill="none" stroke="%23808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/%3E%3C/svg%3E');
+		}
+	}
+
+  &--radio {
+
+    .toggle-input {
+		  border-radius: 50%;
+      background-size: .75rem;
+
+      &:checked {
+        --bs-form-check-bg-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"%3E%3Ccircle cx="10" cy="10" r="8" stroke="none" fill="%23808080" /%3E%3C/svg%3E');
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.search {
+  position: relative;
+  z-index: 1;
+
+  &-input {
+    --_rounded: 50rem;
+    --_padding: .625rem 3rem .625rem 1.5rem;
+  }
+
+  &-btn {
+    --_rounded: 50rem;
+    --_padding: .375rem;
+    --_icon-size: 1.25rem;
+
+    --_color: var(--text-color);
+
+    --_bg: var(--primary);
+
+    position: absolute;
+    top: 50%;
+    right: .5rem;
+    transform: translateY(-50%);
+  }
+}

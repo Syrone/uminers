@@ -1,0 +1,156 @@
+@use "mixins" as mixins;
+
+.blog {
+
+  // section hero
+  &-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @include mixins.breakpoint-up(sm) {
+      gap: 2rem;
+    }
+
+    @include mixins.breakpoint-up(lg) {
+      gap: 4rem;
+    }
+
+    &-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .75rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+      text-align: center;
+
+      @include mixins.breakpoint-up(sm) {
+        grid-column: -1 / 1;
+      }
+
+      @include mixins.breakpoint-up(lg) {
+        font-size: 2.25rem;
+        font-weight: 400;
+      }
+    }
+
+    &-main {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+
+      @include mixins.breakpoint-up(sm) {
+        grid-template-columns: .875fr 1fr;
+        gap: 1.25rem;
+      }
+
+      @include mixins.breakpoint-up(lg) {
+        grid-template-columns: .875fr 1fr auto;
+        gap: 2rem;
+      }
+
+      .swiper-navigation {
+        display: none;
+
+        @include mixins.breakpoint-up(lg) {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    &-title {
+
+      @include mixins.breakpoint-down(lg) {
+        font-size: 1.75rem;
+      }
+    }
+
+    &-articles {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+
+    &-swiper {
+      min-height: 21.25rem;
+      flex: 1 1;
+      position: relative;
+
+      @include mixins.breakpoint-up(md) {
+        min-height: 28.5rem;
+      }
+
+      @include mixins.breakpoint-up(lg) {
+        min-height: 37.5rem;
+      }
+
+      .swiper {
+        position: absolute;
+        inset: 0;
+      }
+    }
+  }
+
+  // section news
+  &-news {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    @include mixins.breakpoint-up(sm) {
+      gap: 1.5rem;
+    }
+
+    @include mixins.breakpoint-up(md) {}
+
+    @include mixins.breakpoint-up(lg) {
+      gap: 2.5rem;
+    }
+
+    &-filter {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      @include mixins.breakpoint-up(lg) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    &-sort {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    &-container {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: .75rem;
+
+      @include mixins.breakpoint-up(sm) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      @include mixins.breakpoint-up(lg) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    &-action {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

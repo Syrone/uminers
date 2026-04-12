@@ -1,0 +1,274 @@
+@use "mixins" as mixins;
+
+.btn {
+	--_width: initial;
+	--_height: initial;
+	--_fs: var(--fs-base);
+	--_fw: 600;
+	--_lh: 1;
+	--_ls: normal;
+	--_border-width: 0;
+	--_border-style: solid;
+	--_rounded: 0;
+	--_padding: 0;
+	--_transition-duration: var(--transition-duration);
+	--_transition-timing-function: var(--transition-timing-function);
+
+	--_color: var(--text-color);
+	--_color-hover: var(--primary);
+	--_color-active: var(--primary);
+
+	--_bg: transparent;
+	--_bg-hover: transparent;
+	--_bg-active: transparent;
+
+	--_border-color: transparent;
+	--_border-color-hover: transparent;
+	--_border-color-active: transparent;
+
+	--_icon-size: 1rem;
+	--_icon-color: var(--_color);
+	--_icon-color-hover: var(--_color-hover);
+	--_icon-color-active: var(--_color-active);
+
+	width: var(--_width);
+	height: var(--_height);
+
+	display: inline-flex;
+	align-items: center;
+
+	font-size: var(--_fs);
+	font-weight: var(--_fw);
+	line-height: var(--_lh);
+	letter-spacing: var(--_ls);
+	color: var(--_color);
+	cursor: pointer;
+	background-color: var(--_bg);
+	border: var(--_border-width) var(--_border-style) var(--_border-color);
+	border-radius: var(--_rounded);
+	padding: var(--_padding);
+	outline: none;
+	transition-property: color, text-shadow, background, border, transform, opacity;
+	transition-duration: var(--_transition-duration);
+	transition-timing-function: var(--_transition-timing-function);
+
+	@media (hover: hover) {
+		&:is(:hover, :focus-visible) {
+			color: var(--_color-hover);
+			background-color: var(--_bg-hover);
+			border-color: var(--_border-color-hover);
+
+      .icon {
+        --_color: var(--_icon-color-hover);
+      }
+		}
+	}
+
+	&:is(:active, .is-active) {
+		color: var(--_color-active);
+		background-color: var(--_bg-active);
+		border-color: var(--_border-color-active);
+
+    .icon {
+      --_color: var(--_icon-color-active);
+    }
+	}
+
+	.icon {
+		--_size: var(--_icon-size);
+		--_color: var(--_icon-color);
+
+    transition-property: color;
+    transition-duration: var(--_transition-duration);
+    transition-timing-function: var(--_transition-timing-function);
+	}
+}
+
+.btn-primary {
+	--_color: var(--dark);
+	--_color-hover: var(--dark);
+	--_color-active: var(--dark);
+
+	--_bg: var(--primary);
+	--_bg-hover: rgba(var(--primary-rgb), .70);
+	--_bg-active: rgba(var(--primary-rgb), .70);
+}
+
+.btn-base,
+.btn-sm,
+.btn-lg {
+  justify-content: center;
+  text-align: center;
+}
+
+.btn-sm {
+	--_height: 1.75rem;
+	--_fs: .875rem;
+	--_rounded: .25rem;
+	--_padding: .25rem .5rem;
+
+  gap: .25rem;
+}
+
+.btn-base {
+	--_height: 2.25rem;
+	--_fs: .875rem;
+	--_rounded: 1.25rem;
+	--_padding: .25rem 1rem;
+}
+
+.btn-lg {
+	--_height: 2.75rem;
+	--_fs: .875rem;
+	--_rounded: 1.25rem;
+  --_padding: .25rem 1.5rem;
+}
+
+.btn-plaintext {
+  --_height: auto;
+  --_padding: 0rem;
+}
+
+.btn-phone {
+  --_height: auto;
+  --_padding: 0rem;
+
+  --_color: rgba(var(--primary-rgb), .70);
+}
+
+.btn-icon {
+  --_height: auto;
+  --_padding: 0rem;
+
+  &.btn-base {
+    --_icon-size: 1.25rem
+  }
+
+  &.btn-lg {
+    --_icon-size: 1.75rem
+  }
+}
+
+.btn-inline {
+  --_fs: inherit;
+  --_fw: inherit;
+  --_lh: inherit;
+
+  --_color: inherit;
+
+  display: inline;
+}
+
+.btn-block {
+  --_fw: 500;
+  --_border-width: .0625rem;
+  --_rounded: .75rem;
+  --_padding: .75rem;
+  --_icon-size: 2rem;
+
+  --_color: var(--gray);
+
+  --_border-color: var(--dark-200);
+  --_border-color-hover: var(--primary);
+  --_border-color-active: var(--primary);
+
+  --_icon-color: var(--text-color);
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: .5rem;
+
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-badge {
+    min-width: 1.25rem;
+    min-height: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .625rem;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    color: var(--dark-900);
+    background-color: var(--primary);
+    border-radius: 50rem;
+    padding: 0rem .375rem;
+  }
+}
+
+.btn-all,
+.btn-author,
+.btn-bitcoin,
+.btn-blog,
+.btn-company,
+.btn-hardware,
+.btn-market {
+  --_fw: 400;
+  --_border-width: .0625rem;
+
+  --_border-color: var(--text-color);
+
+  @include mixins.breakpoint-up(lg) {
+    --_border-color: transparent;
+  }
+
+  &:is(:active, .is-active) {
+    --_fw: 600;
+  }
+}
+
+.btn-all {
+  --_color-hover: var(--primary);
+  --_color-active: var(--primary);
+
+  --_border-color-active: var(--primary);
+}
+
+.btn-author {
+  --_color-hover: var(--tag-author-color);
+  --_color-active: var(--tag-author-color);
+
+  --_border-color-active: var(--tag-author-color);
+}
+
+.btn-bitcoin {
+  --_color-hover: var(--tag-bitcoin-color);
+  --_color-active: var(--tag-bitcoin-color);
+
+  --_border-color-active: var(--tag-bitcoin-color);
+}
+
+.btn-blog {
+  --_color-hover: var(--tag-blog-color);
+  --_color-active: var(--tag-blog-color);
+
+  --_border-color-active: var(--tag-blog-color);
+}
+
+.btn-company {
+  --_color-hover: var(--tag-company-color);
+  --_color-active: var(--tag-company-color);
+
+  --_border-color-active: var(--tag-company-color);
+}
+
+.btn-hardware {
+  --_color-hover: var(--tag-hardware-color);
+  --_color-active: var(--tag-hardware-color);
+
+  --_border-color-active: var(--tag-hardware-color);
+}
+
+.btn-market {
+  --_color-hover: var(--tag-market-color);
+  --_color-active: var(--tag-market-color);
+
+  --_border-color-active: var(--tag-market-color);
+}

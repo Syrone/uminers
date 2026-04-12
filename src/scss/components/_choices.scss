@@ -1,0 +1,111 @@
+@use "mixins" as mixins;
+
+@import 'node_modules/choices.js/src/styles/choices.scss';
+
+.#{$choices-selector} {
+  --choices-font-size-md: var(--fs-base);
+  --choices-guttering: 0rem;
+  --choices-bg-color: var(--dark-300);
+  --choices-base-border: .0625rem solid;
+  --choices-keyline-color: rgba(var(--gray-rgb), .50);
+  --choices-inner-one-padding: .625rem;
+  --choices-inner-padding: var(--choices-inner-one-padding) .75rem;
+  --choices-list-single-padding: 0rem;
+  --choices-border-radius: .75rem;
+  --choices-placeholder-opacity: 1;
+  --choices-dropdown-item-padding: .25rem .5rem;
+
+  --choices-bg-color-dropdown: rgba(var(--dark-300-rgb), .50);
+  --choices-z-index: 1030;
+
+  color: rgba(var(--gray-rgb), 1);
+  transition: color 300ms ease-in-out;
+
+  &.is-open {
+    color: rgba(var(--text-color-rgb), 1);
+  }
+
+  &[data-type*=select-one] {
+
+    &::after {
+      all: unset;
+    }
+
+    .#{$choices-selector}__inner {
+      display: flex;
+      align-items: center;
+    }
+
+    &.is-open {
+
+      .choices-icon {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+}
+
+.#{$choices-selector}-icon {
+  transition: transform 300ms ease-in-out;
+}
+
+.#{$choices-selector}__inner {
+  font-weight: 400;
+  padding: var(--choices-inner-padding);
+  transition: border-color 300ms ease-in-out;
+
+  .is-open &,
+  .is-flipped.is-open & {
+    border-radius: var(--choices-border-radius, #{$choices-border-radius}) var(--choices-border-radius, #{$choices-border-radius});
+  }
+
+  .is-focused &,
+  .is-open & {
+    border-color: var(--primary);
+  }
+}
+
+.#{$choices-selector}__placeholder {
+  color: rgba(var(--gray-rgb), 1);
+}
+
+%choices-dropdown {
+  color: var(--text-color);
+  background-clip: padding-box;
+  border: none;
+  margin-top: .75rem;
+  border-radius: var(--choices-border-radius, #{$choices-border-radius});
+  padding: .5rem;
+  backdrop-filter: blur(10rem);
+  overflow: initial;
+
+  .is-flipped & {
+    margin-bottom: .75rem;
+    border-radius: var(--choices-border-radius, #{$choices-border-radius});
+  }
+
+  .is-open & {
+    border-color: transparent;
+  }
+
+  .#{$choices-selector}__placeholder {
+    display: none;
+  }
+
+  .#{$choices-selector}__item--selectable {
+    transition: color 300ms ease-in-out;
+
+    &.is-selected {
+      color: var(--primary);
+    }
+
+    &.is-selected,
+    &.is-highlighted {
+      background-color: transparent;
+    }
+
+    &:is(:hover, :focus-visible) {
+      color: var(--primary);
+    }
+  }
+}

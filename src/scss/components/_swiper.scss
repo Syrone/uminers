@@ -1,0 +1,60 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  height: auto;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  --_border-width: .0625rem;
+  --_rounded: 50rem;
+  --_padding: .5rem;
+  --_icon-size: 1.5rem;
+
+  --_color: var(--primary);
+  --_color-hover: rgba(var(--primary-rgb), .70);
+  --_color-active: rgba(var(--primary-rgb), .70);
+
+  --_border-color: var(--_color);
+  --_border-color-hover: var(--_color-hover);
+  --_border-color-active: var(--_color-active);
+
+  position: unset;
+  margin: unset;
+  top: unset;
+  left: unset;
+  right: unset;
+  width: unset;
+
+  &::after {
+    all: unset;
+  }
+}
+
+.swiper-pagination {
+  --swiper-pagination-bullet-width: 1.5rem;
+  --swiper-pagination-bullet-height: .1875rem;
+  --swiper-pagination-bullet-border-radius: 50rem;
+  --swiper-pagination-bullet-horizontal-gap: .25rem;
+  --swiper-theme-color: var(--primary);
+  --swiper-pagination-bullet-inactive-color: var(--gray);
+
+  display: inline-flex;
+  gap: var(--swiper-pagination-bullet-horizontal-gap);
+  position: unset;
+  inset: unset;
+
+  &-bullet {
+    margin: 0 !important;
+  }
+}
+
+.swiper-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}

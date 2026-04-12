@@ -1,0 +1,292 @@
+@use "mixins" as mixins;
+
+.article {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.25rem;
+
+  @include mixins.breakpoint-up(sm) {
+  }
+
+  @include mixins.breakpoint-up(lg) {
+  }
+
+  &-picture {
+    height: 15rem;
+    margin-inline: calc(-1 * var(--container-offset));
+    position: relative;
+    overflow: hidden;
+
+    @include mixins.breakpoint-up(sm) {
+      height: 25rem;
+    }
+
+    @include mixins.breakpoint-up(xxl) {
+      border-radius: 2rem;
+      margin-inline: unset;
+    }
+  }
+
+  &-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  &-body {
+    background-color: rgba(var(--light-rgb), .025);
+    margin-top: -4rem;
+    border-radius: 1.25rem;
+    padding: var(--container-offset);
+    backdrop-filter: blur(4rem);
+
+    @include mixins.breakpoint-up(sm) {
+      margin-top: -7rem;
+    }
+
+    @include mixins.breakpoint-up(lg) {
+      max-width: 60rem;
+      align-self: center;
+      border-radius: 2rem;
+      padding: 4rem;
+    }
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    @include mixins.breakpoint-up(lg) {
+      gap: 4rem;
+    }
+
+    &-top {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      font-size: .875rem;
+      color: rgba(var(--text-color-rgb), .50);
+
+      @include mixins.breakpoint-up(lg) {
+        flex-direction: row;
+      }
+    }
+
+    &-start {
+      flex: 1 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .375rem;
+    }
+
+    &-end {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+  }
+
+  &-main {
+    font-size: .875rem;
+
+    @include mixins.breakpoint-up(lg) {
+      font-size: 1.25rem;
+    }
+
+    &:not(:first-child) {
+      margin-top: 1rem;
+
+      @include mixins.breakpoint-up(lg) {
+        margin-top: 4rem;
+      }
+    }
+
+    h2, h3, h4, h5 {
+
+      &:not(:first-child) {
+        margin-top: 1.25rem;
+
+        @include mixins.breakpoint-up(lg) {
+          margin-top: 2rem;
+        }
+      }
+    }
+
+    h2 {
+
+      &:not(:last-child) {
+        margin-bottom: 1.25rem;
+
+        @include mixins.breakpoint-up(lg) {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+
+    h3 {
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+
+        @include mixins.breakpoint-up(lg) {
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+
+    h4 {
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+
+        @include mixins.breakpoint-up(lg) {
+          margin-bottom: 1.25rem;
+        }
+      }
+    }
+
+    h5 {
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    p {
+
+      + p {
+        margin-top: 1.25rem;
+
+        @include mixins.breakpoint-up(lg) {
+          margin-top: 2rem;
+        }
+      }
+    }
+
+    table {
+      width: 100%;
+      text-align: start;
+      border-collapse: collapse;
+
+      th {
+        text-align: inherit;
+      }
+
+      th, td {
+        border-top: .0625rem solid var(--text-color);
+        border-left: .0625rem solid var(--text-color);
+        padding: .5rem 1rem;
+
+        &:last-child {
+          border-right: .0625rem solid var(--text-color);
+        }
+      }
+
+      tr {
+
+        &:last-child {
+
+          th, td {
+            border-bottom: .0625rem solid var(--text-color);
+          }
+        }
+      }
+    }
+  }
+
+  &-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    @include mixins.breakpoint-up(lg) {
+      gap: 5rem;
+    }
+
+    &:not(:first-child) {
+      margin-top: 2.5rem;
+
+      @include mixins.breakpoint-up(lg) {
+        margin-top: 5rem;
+      }
+    }
+
+    &-top {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-bottom {
+      display: flex;
+
+      @include mixins.breakpoint-up(lg) {
+        justify-content: center;
+      }
+    }
+  }
+
+  &-prev,
+  &-next {
+    max-width: 15rem;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+
+    &-label {
+      font-size: .875rem;
+      color: rgba(var(--text-color-rgb), .50);
+    }
+
+    &-title {
+      font-size: .875rem;
+      font-weight: 500;
+
+      @include mixins.breakpoint-up(lg) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &-prev {
+    align-items: start;
+    text-align: start;
+  }
+
+  &-next {
+    align-items: end;
+    text-align: end;
+  }
+
+  &-share {
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    border-radius: 50rem;
+    padding: .5rem 1.5rem;
+
+    @include mixins.breakpoint-up(lg) {
+      flex: initial;
+    }
+
+    .list-group--socials {
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+
+      .list-group-item {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .75rem;
+
+        &--header {
+          font-weight: 700;
+        }
+      }
+
+      .list-group-link {
+        --_icon-size: 1.5rem;
+      }
+    }
+  }
+}

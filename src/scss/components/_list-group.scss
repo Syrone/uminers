@@ -1,0 +1,87 @@
+.list-group {
+  --bs-list-group-color: var(--text-color);
+  --bs-list-group-bg: transparent;
+  --bs-list-group-border-color: transparent;
+  --bs-list-group-border-width: 0rem;
+  --bs-list-group-border-radius: 0rem;
+  --bs-list-group-item-padding-x: 0rem;
+  --bs-list-group-item-padding-y: 0rem;
+  --bs-list-group-action-color: var(--text-color);
+  --bs-list-group-action-hover-color: var(--primary);
+  --bs-list-group-action-hover-bg: transparent;
+  --bs-list-group-action-active-color: var(--primary);
+  --bs-list-group-action-active-bg: transparent;
+  --bs-list-group-disabled-color: var(--dark-200);
+  --bs-list-group-disabled-bg: transparent;
+  --bs-list-group-active-color: var(--primary);
+  --bs-list-group-active-bg: transparent;
+  --bs-list-group-active-border-color: transparent;
+  // scss-docs-end list-group-css-vars
+
+  display: flex;
+  flex-direction: column;
+
+  // No need to set list-style: none; since .list-group-item is block level
+  padding: 0; // reset padding because ul and ol
+  margin: 0;
+  border-radius: var(--bs-list-group-border-radius);
+}
+
+.list-group-numbered {
+  list-style-type: none;
+  counter-reset: section;
+
+  > .list-group-item::before {
+    // Increments only this instance of the section counter
+    content: counters(section, ".") ". ";
+    counter-increment: section;
+  }
+}
+
+// Individual list items
+//
+// Use on `li`s or `div`s within the `.list-group` parent.
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
+  color: var(--bs-list-group-color);
+  background-color: var(--bs-list-group-bg);
+  border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
+
+  &:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+
+  &.disabled,
+  &:disabled {
+    color: var(--bs-list-group-disabled-color);
+    pointer-events: none;
+    background-color: var(--bs-list-group-disabled-bg);
+  }
+
+  // Include both here for `<a>`s and `<button>`s
+  &.active {
+    z-index: 2; // Place active items above their siblings for proper border styling
+    color: var(--bs-list-group-active-color);
+    background-color: var(--bs-list-group-active-bg);
+    border-color: var(--bs-list-group-active-border-color);
+  }
+
+  // stylelint-disable-next-line scss/selector-no-redundant-nesting-selector
+  & + .list-group-item {
+    border-top-width: 0;
+
+    &.active {
+      margin-top: calc(-1 * var(--bs-list-group-border-width)); // stylelint-disable-line function-disallowed-list
+      border-top-width: var(--bs-list-group-border-width);
+    }
+  }
+}

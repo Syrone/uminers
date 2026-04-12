@@ -1,0 +1,64 @@
+// если вы хотите использовать sass-переменные - удалите root
+// colors
+:root {
+  // base
+  --font-family: "Manrope", sans-serif;
+  --content-width: 1280px;
+  --container-offset: 1.25rem;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+  // sizes
+  --fs-base: 1rem;
+  --fw-base: 400;
+  --lh-base: normal;
+
+  // colors
+  --title-color: var(--light);
+  --title-color-rgb: var(--light-rgb);
+  --text-color: var(--light);
+  --text-color-rgb: var(--light-rgb);
+
+  --primary: #00C1AD;
+  --primary-rgb: 0, 193, 173;
+
+  --light: #fff;
+  --light-rgb: 255, 255, 255;
+
+  --dark: #000;
+  --dark-rgb: 0, 0, 0;
+  --dark-200: #3E3E3E;
+  --dark-200-rgb: 62, 62, 62;
+  --dark-300: #2B2B2B;
+  --dark-300-rgb: 43, 43, 43;
+  --dark-700: #1a1a1a;
+  --dark-700-rgb: 26, 26, 26;
+  --dark-900: #0E0E0E;
+  --dark-900-rgb: 14, 14, 14;
+
+  --gray: #909090;
+  --gray-rgb: 144, 144, 144;
+  --gray-400: #8d8d8d;
+  --gray-400-rgb: 141, 141, 141;
+
+  --required: #FF3333;
+
+  --tag-company-color: #FF6464;
+  --tag-bitcoin-color: #28D553;
+  --tag-author-color: #F5FF3C;
+  --tag-hardware-color: #FF97FF;
+  --tag-blog-color: #3F7FFF;
+  --tag-market-color: #52FFF6;
+
+  // backgrounds
+  --body-bg: var(--dark);
+
+  // radius
+  --rounded: 1rem;
+
+  // shadows
+  --shadow: 0px 0px .625rem .125rem rgba(0,0,0,0.375);
+
+  // transitions
+  --transition-duration: 300ms;
+  --transition-timing-function: ease-in-out;
+}

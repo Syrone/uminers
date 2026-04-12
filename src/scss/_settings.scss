@@ -1,0 +1,60 @@
+@use "mixins" as mixins;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.page {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+.page-body {
+  min-width: 20rem;
+  min-height: 100%;
+  margin: 0;
+
+  font-family: var(--font-family, sans-serif);
+  font-size: var(--fs-base);
+  font-weight: var(--fs-base);
+  line-height: var(--lh-base);
+  color: var(--text-color);
+  background-color: var(--body-bg);
+  position: relative;
+}
+
+.page-decoration {
+  user-select: none;
+  pointer-events: none;
+  overflow: hidden;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  span {
+    background-image: linear-gradient(to left, rgba(var(--primary-rgb), 1), transparent);
+    border-radius: 50%;
+    position: absolute;
+    will-change: transform;
+  }
+}
+
+.page-body,
+.site-container,
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-container,
+.main,
+.main-section {
+  flex: 1;
+}
+
+.main {
+  padding-top: var(--header-height, 6.25rem);
+}
