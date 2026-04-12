@@ -3944,25 +3944,28 @@ textarea {
     margin-top: 5rem;
   }
 }
-.article-footer-top {
+.article-source {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: rgba(var(--text-color-rgb), 0.5);
+  text-align: center;
+}
+.article-source > span {
+  color: var(--text-color);
+}
+.article-navigation {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-}
-.article-footer-bottom {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-@media (min-width: 991.98px) {
-  .article-footer-bottom {
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-  }
 }
 .article-prev, .article-next {
   max-width: 15rem;
@@ -4001,9 +4004,6 @@ textarea {
   text-align: end;
 }
 .article-share {
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1;
-  flex: 1 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4015,9 +4015,9 @@ textarea {
 }
 @media (min-width: 991.98px) {
   .article-share {
-    -webkit-box-flex: initial;
-    -ms-flex: initial;
-    flex: initial;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
   }
 }
 .article-share .list-group--socials {

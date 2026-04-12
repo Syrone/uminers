@@ -256,19 +256,24 @@
         margin-top: 5rem;
       }
     }
+  }
 
-    &-top {
-      display: flex;
-      justify-content: space-between;
+  &-source {
+    display: flex;
+    justify-content: center;
+    gap: .25rem;
+    font-size: .75rem;
+    color: rgba(var(--text-color-rgb), .50);
+    text-align: center;
+
+    > span {
+      color: var(--text-color);
     }
+  }
 
-    &-bottom {
-      display: flex;
-
-      @include mixins.breakpoint-up(lg) {
-        justify-content: center;
-      }
-    }
+  &-navigation {
+    display: flex;
+    justify-content: space-between;
   }
 
   &-prev,
@@ -304,14 +309,13 @@
   }
 
   &-share {
-    flex: 1 1;
     display: flex;
     justify-content: center;
     border-radius: 50rem;
     padding: .5rem 1.5rem;
 
     @include mixins.breakpoint-up(lg) {
-      flex: initial;
+      align-self: center;
     }
 
     .list-group--socials {
