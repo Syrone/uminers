@@ -2922,15 +2922,21 @@ textarea {
   .delivery-advantage {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
-    -webkit-box-align: initial;
-    -ms-flex-align: initial;
-    align-items: initial;
+    -webkit-box-align: unset;
+    -ms-flex-align: unset;
+    align-items: unset;
+    -ms-flex-line-pack: start;
+    align-content: start;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
     gap: 0.625rem;
     text-align: center;
   }
+}
+.delivery-advantage-image {
+  width: 100%;
+  display: block;
 }
 .delivery-advantage-content {
   display: -webkit-box;
@@ -3691,6 +3697,13 @@ textarea {
     margin-inline: unset;
   }
 }
+.article-picture:after {
+  content: "";
+  display: block;
+  background-image: radial-gradient(circle, transparent 50%, rgb(0, 0, 0) 95%);
+  position: absolute;
+  inset: 0;
+}
 .article-image {
   width: 100%;
   height: 100%;
@@ -3702,6 +3715,7 @@ textarea {
   border-radius: 1.25rem;
   padding: var(--container-offset);
   backdrop-filter: blur(4rem);
+  position: relative;
 }
 @media (min-width: 575.98px) {
   .article-body {
@@ -3797,12 +3811,28 @@ textarea {
     margin-top: 2rem;
   }
 }
+.article-main h2 {
+  font-size: 1.5rem;
+}
+@media (min-width: 991.98px) {
+  .article-main h2 {
+    font-size: 2rem;
+  }
+}
 .article-main h2:not(:last-child) {
   margin-bottom: 1.25rem;
 }
 @media (min-width: 991.98px) {
   .article-main h2:not(:last-child) {
     margin-bottom: 2rem;
+  }
+}
+.article-main h3 {
+  font-size: 1.25rem;
+}
+@media (min-width: 991.98px) {
+  .article-main h3 {
+    font-size: 1.5rem;
   }
 }
 .article-main h3:not(:last-child) {
@@ -3813,6 +3843,14 @@ textarea {
     margin-bottom: 1.5rem;
   }
 }
+.article-main h4 {
+  font-size: 1.125rem;
+}
+@media (min-width: 991.98px) {
+  .article-main h4 {
+    font-size: 1.25rem;
+  }
+}
 .article-main h4:not(:last-child) {
   margin-bottom: 1rem;
 }
@@ -3821,15 +3859,47 @@ textarea {
     margin-bottom: 1.25rem;
   }
 }
+.article-main h5 {
+  font-size: 1rem;
+}
+@media (min-width: 991.98px) {
+  .article-main h5 {
+    font-size: 1.125rem;
+  }
+}
 .article-main h5:not(:last-child) {
   margin-bottom: 1rem;
 }
-.article-main p + p {
+.article-main p:not(:first-child),
+.article-main table:not(:first-child),
+.article-main .table-responsive:not(:first-child),
+.article-main ul:not(:first-child),
+.article-main ol:not(:first-child) {
   margin-top: 1.25rem;
 }
 @media (min-width: 991.98px) {
-  .article-main p + p {
+  .article-main p:not(:first-child),
+  .article-main table:not(:first-child),
+  .article-main .table-responsive:not(:first-child),
+  .article-main ul:not(:first-child),
+  .article-main ol:not(:first-child) {
     margin-top: 2rem;
+  }
+}
+.article-main p:not(:last-child),
+.article-main table:not(:last-child),
+.article-main .table-responsive:not(:last-child),
+.article-main ul:not(:last-child),
+.article-main ol:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+@media (min-width: 991.98px) {
+  .article-main p:not(:last-child),
+  .article-main table:not(:last-child),
+  .article-main .table-responsive:not(:last-child),
+  .article-main ul:not(:last-child),
+  .article-main ol:not(:last-child) {
+    margin-bottom: 2rem;
   }
 }
 .article-main table {

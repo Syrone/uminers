@@ -25,6 +25,18 @@
       border-radius: 2rem;
       margin-inline: unset;
     }
+
+    &:after {
+      content: '';
+      display: block;
+      background-image: radial-gradient(
+        circle,
+        transparent 50%,
+        rgba(0, 0, 0, 1) 95%
+      );
+      position: absolute;
+      inset: 0;
+    }
   }
 
   &-image {
@@ -39,6 +51,7 @@
     border-radius: 1.25rem;
     padding: var(--container-offset);
     backdrop-filter: blur(4rem);
+    position: relative;
 
     @include mixins.breakpoint-up(sm) {
       margin-top: -7rem;
@@ -114,6 +127,11 @@
     }
 
     h2 {
+      font-size: 1.5rem;
+
+      @include mixins.breakpoint-up(lg) {
+        font-size: 2rem;
+      }
 
       &:not(:last-child) {
         margin-bottom: 1.25rem;
@@ -125,6 +143,11 @@
     }
 
     h3 {
+      font-size: 1.25rem;
+
+      @include mixins.breakpoint-up(lg) {
+        font-size: 1.5rem;
+      }
 
       &:not(:last-child) {
         margin-bottom: 1rem;
@@ -136,6 +159,11 @@
     }
 
     h4 {
+      font-size: 1.125rem;
+
+      @include mixins.breakpoint-up(lg) {
+        font-size: 1.25rem;
+      }
 
       &:not(:last-child) {
         margin-bottom: 1rem;
@@ -147,19 +175,36 @@
     }
 
     h5 {
+      font-size: 1rem;
+
+      @include mixins.breakpoint-up(lg) {
+        font-size: 1.125rem;
+      }
 
       &:not(:last-child) {
         margin-bottom: 1rem;
       }
     }
 
-    p {
+    p,
+    table,
+    .table-responsive,
+    ul,
+    ol {
 
-      + p {
+      &:not(:first-child) {
         margin-top: 1.25rem;
 
         @include mixins.breakpoint-up(lg) {
           margin-top: 2rem;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 1.25rem;
+
+        @include mixins.breakpoint-up(lg) {
+          margin-bottom: 2rem;
         }
       }
     }

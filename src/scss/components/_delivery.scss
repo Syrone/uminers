@@ -249,10 +249,16 @@
 
     @include mixins.breakpoint-up(sm) {
       grid-template-columns: 1fr;
-      align-items: initial;
+      align-items: unset;
+      align-content: start;
       justify-content: center;
       gap: .625rem;
       text-align: center;
+    }
+
+    &-image {
+      width: 100%;
+      display: block;
     }
 
     &-content {
