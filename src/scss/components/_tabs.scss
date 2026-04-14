@@ -1,0 +1,94 @@
+@use "mixins" as mixins;
+
+.nav-tabs {
+  // scss-docs-start nav-tabs-css-vars
+  --nav-link-font-size: .875rem;
+  --nav-link-font-weight: 600;
+
+  --nav-tabs-border-width: .25rem;
+  --nav-tabs-border-color: var(--primary);
+  --nav-tabs-border-radius: 0;
+  --nav-tabs-link-hover-border-color: var(--primary);
+  --nav-tabs-link-active-color: rgba(var(--primary-rgb), 1);
+  --nav-tabs-link-active-bg: transparent;
+  --nav-tabs-link-active-border-color: var(--primary);
+  // scss-docs-end nav-tabs-css-vars
+
+  flex-direction: row;
+  margin-inline: calc(-1 * var(--container-offset));
+  padding-inline: var(--container-offset);
+  overflow-y: hidden;
+  overflow-x: auto;
+
+  @include mixins.breakpoint-up(lg) {
+    margin-inline: unset;
+    padding-inline: unset;
+  }
+
+  .nav-item {
+    flex: 1 1;
+    display: flex;
+    position: relative;
+
+    &::after {
+      content: '';
+      border-bottom: .0625rem solid rgba(var(--primary-rgb), .50);
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  .nav-link {
+    --_fw: 400;
+    --_lh: 1.5;
+    --_rounded: 0;
+    --_padding: .25rem 1rem;
+
+    --_color: rgba(var(--primary-rgb), .70);
+    --_color-hover: rgba(var(--primary-rgb), .70);
+    --_color-active: rgba(var(--primary-rgb), .70);
+
+    flex: 1 1;
+    justify-content: center;
+    text-align: center;
+    // margin-bottom: calc(-1 * var(--nav-tabs-border-width)); // stylelint-disable-line function-disallowed-list
+    border-bottom: var(--nav-tabs-border-width) solid transparent;
+    padding-bottom: 1rem;
+
+    &:hover,
+    &:focus {
+      // Prevents active .nav-link tab overlapping focus outline of previous/next .nav-link
+      isolation: isolate;
+      border-color: var(--nav-tabs-link-hover-border-color);
+    }
+  }
+
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    font-weight: 700;
+    color: var(--nav-tabs-link-active-color);
+    background-color: var(--nav-tabs-link-active-bg);
+    border-color: var(--nav-tabs-link-active-border-color);
+  }
+
+  .dropdown-menu {
+    // Make dropdown border overlap tab border
+    margin-top: calc(-1 * var(--nav-tabs-border-width)); // stylelint-disable-line function-disallowed-list
+    // Remove the top rounded corners here since there is a hard edge above the menu
+  }
+}
+
+.tab-content {
+  > .tab-pane {
+    display: none;
+  }
+  > .active {
+    display: block;
+  }
+}
+
+.tab-pane {
+  margin-top: 2.5rem;
+}

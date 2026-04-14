@@ -6,5 +6,7 @@ import "./components/dropdown.js";
 import "./components/modal.js";
 import "./components/offcanvas.js";
 import "./components/swiper.js";
+import "./components/tabs.js";
 import "./components/transfer.js";
 import "./components/video.js";
+import "./components/counter.js";

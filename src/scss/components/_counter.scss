@@ -1,0 +1,70 @@
+@use "mixins" as mixins;
+
+.counter {
+  display: flex;
+  border: .0625rem solid var(--primary);
+  border-radius: 50rem;
+
+  @include mixins.breakpoint-up(md) {
+
+  }
+
+  &-input {
+    --_width: auto;
+    --_padding: .625rem .25rem;
+    --_fw: 700;
+
+    --_color: var(--primary);
+    --_color-hover: rgba(var(--primary-rgb), .70);
+    --_color-active: rgba(var(--primary-rgb), .70);
+    --_bg: transparent;
+    --_bg-hover: transparent;
+    --_bg-active: transparent;
+    --_border-color: transparent;
+    --_border-color-hover: transparent;
+    --_border-color-active: transparent;
+
+    flex: 1 1;
+    min-width: 2.5rem;
+    max-width: 5rem;
+    text-align: center;
+  }
+
+  &-btn {
+    --_width: 2.5rem;
+    --_fs: 1.25rem;
+    --_fw: 700;
+
+    --_color: var(--primary);
+    --_color-hover: rgba(var(--primary-rgb), .70);
+    --_color-active: rgba(var(--primary-rgb), .70);
+
+    justify-content: center;
+    text-align: center;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: .0625rem;
+      background-image: linear-gradient(to top, transparent 0%, var(--primary) 50%, transparent 100%);
+      position: absolute;
+      top: .5rem;
+      bottom: .5rem;
+    }
+
+    &--increment {
+
+      &::after {
+        right: 0;
+      }
+    }
+
+    &--decrement {
+
+      &::after {
+        left: 0;
+      }
+    }
+  }
+}

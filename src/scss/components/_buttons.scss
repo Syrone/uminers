@@ -94,6 +94,16 @@
 	--_bg-active: rgba(var(--primary-rgb), .70);
 }
 
+.btn-light {
+	--_color: var(--dark);
+	--_color-hover: var(--dark);
+	--_color-active: var(--dark);
+
+	--_bg: var(--light);
+	--_bg-hover: rgba(var(--light-rgb), .70);
+	--_bg-active: rgba(var(--light-rgb), .70);
+}
+
 .btn-base,
 .btn-sm,
 .btn-lg {

@@ -2,12 +2,624 @@
 
 .product {
 
-  @include mixins.breakpoint-up(sm) {}
+  // section hero
+  &-hero {
+    display: grid;
+    grid-template-columns: minmax(0%, 100%);
+    gap: 1.25rem;
+    margin-top: 1.5rem;
 
-  @include mixins.breakpoint-up(md) {}
+    @include mixins.breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+      background-image: linear-gradient(170deg, rgba(var(--light-rgb), .15) 0%, rgba(204, 204, 204, .15) 50%, rgba(153, 153, 153, .15) 100%);
+      border-radius: 1rem;
+      padding: 2.5rem 1.5rem;
+    }
 
-  @include mixins.breakpoint-up(lg) {}
+    @include mixins.breakpoint-up(lg) {
+      gap: 2rem;
+      margin-top: 2rem;
+      border-radius: 2rem;
+      padding: 3rem 2rem;
+    }
 
+    &-swipers {
+      display: grid;
+      grid-template-columns: minmax(0%, 100%);
+      gap: .5rem;
+
+      @include mixins.breakpoint-up(md) {
+        grid-template-columns: 4rem minmax(0, 100%);
+        grid-template-rows: 20rem;
+        gap: 1rem;
+      }
+
+      @include mixins.breakpoint-up(lg) {
+        grid-template-columns: 7rem minmax(0, 100%);
+        grid-template-rows: 30rem;
+      }
+    }
+
+    &-swiper {
+
+      .swiper {
+        width: auto;
+        margin-inline: calc(-1 * var(--container-offset));
+        padding-inline: var(--container-offset);
+
+        @include mixins.breakpoint-up(md) {
+          width: 100%;
+          margin-inline: unset;
+          padding-inline: unset;
+        }
+      }
+    }
+
+    &-thumb {
+      display: none;
+
+      @include mixins.breakpoint-up(md) {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+      }
+
+      @include mixins.breakpoint-up(lg) {
+        gap: 1rem;
+      }
+
+      .swiper {
+        flex: 1 1;
+        height: auto;
+        padding-block: .25rem;
+
+        &-slide {
+          display: flex;
+          align-items: center;
+
+          &-thumb-active {
+
+            .product-hero-image {
+              border-color: var(--light);
+            }
+          }
+        }
+
+        &-button-prev,
+        &-button-next {
+          align-self: center;
+          transform: rotate(90deg);
+        }
+      }
+
+      .product-hero-image {
+        height: auto;
+        border-radius: .5rem;
+        aspect-ratio: 1 / 1;
+
+        @include mixins.breakpoint-up(md) {
+          border-radius: 1rem;
+        }
+      }
+    }
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 1rem;
+      background-color: rgba(var(--light-rgb), .15);
+
+      @include mixins.breakpoint-up(md) {
+        background-color: transparent;
+        border: .125rem solid rgba(var(--light-rgb), .15);
+      }
+
+      @include mixins.breakpoint-up(lg) {
+        border-radius: 2rem;
+      }
+    }
+
+    &-body {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      background-image: linear-gradient(170deg, rgba(var(--light-rgb), .15) 0%, rgba(204, 204, 204, .15) 50%, rgba(153, 153, 153, .15) 100%);
+      border-radius: 1rem;
+      padding: var(--container-offset);
+
+      @include mixins.breakpoint-up(md) {
+        background-image: unset;
+        border-radius: unset;
+        padding: unset;
+      }
+    }
+
+    &-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+
+      @include mixins.breakpoint-up(lg) {
+        gap: 2.5rem;
+      }
+
+      &-top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: .75rem 1.25rem;
+
+        @include mixins.breakpoint-up(md) {
+          flex-wrap: nowrap;
+        }
+      }
+
+      &-bottom {
+        display: flex;
+      }
+    }
+
+    &-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem 1.25rem;
+    }
+
+    &-detail {
+      display: flex;
+      gap: .5rem;
+
+      &-image {
+        display: block;
+      }
+
+      &-content {
+        max-width: 7.5rem;
+        font-size: .625rem;
+
+        @include mixins.breakpoint-up(lg) {
+          max-width: 11.25rem;
+          color: rgba(var(--text-color-rgb), .50);
+        }
+      }
+
+      &-title {
+        font-size: .875rem;
+        color: var(--text-color);
+
+        @include mixins.breakpoint-up(lg) {
+          font-size: 1rem;
+        }
+      }
+
+      &-subtitle {
+        font-size: .875rem;
+        color: var(--text-color);
+
+        @include mixins.breakpoint-up(lg) {
+          font-size: inherit;
+        }
+      }
+    }
+
+    &-main {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    &-price {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    &-actions {
+      display: flex;
+      gap: .5rem;
+
+      @include mixins.breakpoint-up(lg) {
+        gap: .75rem;
+      }
+    }
+
+    &-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    &-infos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: .875rem;
+      color: rgba(var(--light-rgb), .50);
+      border-block: .0625rem solid rgba(var(--light-rgb), .25);
+      padding-block: .875rem;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+
+      @include mixins.breakpoint-up(lg) {
+        flex: 1 1;
+        gap: .5rem;
+      }
+    }
+
+    &-brands {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+
+      @include mixins.breakpoint-up(lg) {
+        gap: 2.5rem;
+      }
+    }
+
+    &-brand {
+      display: flex;
+      flex-direction: column;
+      gap: .375rem;
+
+      &-image {
+        opacity: .5;
+      }
+    }
+
+    &-review {
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+
+      &-label {
+        font-size: .75rem;
+        font-weight: 700;
+        color: rgba(var(--light-rgb), .5);
+      }
+
+      &-content {
+        display: flex;
+        gap: .125rem;
+        opacity: .5;
+      }
+    }
+  }
+
+  // section tabs
+  &-pane {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    position: relative;
+    z-index: 1;
+
+    @include mixins.breakpoint-up(md) {
+      min-height: 35rem;
+    }
+
+    @include mixins.breakpoint-up(lg) {
+      min-height: 45rem;
+    }
+
+    &-bg {
+      display: none;
+
+      @include mixins.breakpoint-up(md) {
+        display: block;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+      }
+    }
+
+    &-features {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: .75rem;
+
+      @include mixins.breakpoint-up(md) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    &-feature {
+      display: grid;
+      grid-template-columns: 4rem 1fr;
+      gap: .75rem;
+
+      @include mixins.breakpoint-up(lg) {
+        grid-template-columns: 6.25rem 1fr;
+        align-items: center;
+      }
+
+      &-image {
+        display: block;
+        width: 100%;
+      }
+
+      &-content {
+        font-size: .75rem;
+        font-weight: 300;
+
+        @include mixins.breakpoint-up(lg) {
+          font-size: .875rem;
+        }
+
+        b {
+          font-weight: 700;
+        }
+      }
+
+      &-title {
+        font-size: .875rem;
+        color: var(--primary);
+        margin-bottom: .75rem;
+
+        @include mixins.breakpoint-up(lg) {
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    &-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+
+      @include mixins.breakpoint-up(md) {
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        gap: 2.5rem;
+      }
+    }
+
+    &-detail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+
+      @include mixins.breakpoint-up(lg) {
+        font-size: 1.25rem;
+      }
+    }
+
+    &-image {
+      display: block;
+    }
+
+    &-info {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2.5rem;
+
+      @include mixins.breakpoint-up(md) {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+      }
+
+      &-end {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        order: -1;
+
+        @include mixins.breakpoint-up(md) {
+          order: initial;
+        }
+
+        .image {
+          display: block;
+        }
+      }
+    }
+
+    &-picture {
+      display: flex;
+      justify-content: center;
+
+      .image {
+        display: block;
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+
+      .list-group-item {
+        display: flex;
+        flex-direction: column;
+        gap: .125rem;
+
+        &:not(:first-child, :last-child) {
+
+          &::after {
+            content: '';
+            width: 100%;
+            height: .0625rem;
+            display: block;
+            background-image: linear-gradient(to right, rgba(153, 153, 153, .20) 0%, transparent 100%);
+          }
+        }
+
+        &:first-child {
+          margin-bottom: 1rem;
+        }
+      }
+
+      &-header,
+      &-item {
+        display: grid;
+        grid-template-columns: .5fr 1fr;
+        gap: .5rem;
+      }
+
+      &-header {
+        font-weight: 500;
+      }
+
+      &-item {
+        font-size: .75rem;
+
+        @include mixins.breakpoint-up(lg) {
+          font-size: .875rem;
+        }
+
+        > * {
+
+          &:first-child {
+            color: rgba(var(--text-color-rgb), .70);
+          }
+
+          &:last-child {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    &-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: auto;
+
+      @include mixins.breakpoint-up(lg) {
+        justify-content: end;
+      }
+    }
+  }
+
+  // section features
+  &-features {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: .25rem;
+
+    @include mixins.breakpoint-up(md) {
+      gap: .5rem;
+    }
+  }
+
+  &-feature {
+    min-height: 8.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    border-radius: 1rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+
+    @include mixins.breakpoint-up(md) {
+      border-radius: 2rem;
+    }
+
+    @include mixins.breakpoint-up(lg) {
+      min-height: 12.5rem;
+    }
+
+    picture {
+      border-radius: inherit;
+    }
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: inherit;
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+
+    &-content {
+      min-height: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: .625rem;
+      font-weight: 500;
+      border-bottom-left-radius: inherit;
+      border-bottom-right-radius: inherit;
+      padding: .5rem .75rem;
+
+      @include mixins.breakpoint-up(md) {
+        padding: .75rem 1rem;
+      }
+
+      @include mixins.breakpoint-up(lg) {
+        min-height: 5rem;
+        font-size: 1rem;
+        padding: .75rem 1.5rem;
+      }
+    }
+
+    &-title {
+
+      @include mixins.breakpoint-down(md) {
+        font-size: 1.75rem;
+      }
+    }
+
+    &:first-child {
+      grid-column: -1 / 1;
+      justify-content: initial;
+
+      @include mixins.breakpoint-down(md) {
+        min-height: 15rem;
+      }
+
+      .product-feature-content {
+        flex: 1 1;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: unset;
+        background-image: radial-gradient(circle, rgba(var(--dark-rgb), .50) 0%, rgba(0, 0, 0, 0) 100%);
+        backdrop-filter: unset;
+        box-shadow: unset;
+        position: unset;
+        overflow: unset;
+
+        &::before {
+          all: unset;
+        }
+      }
+    }
+
+    &:nth-child(n + 2) {
+      grid-column: span 3;
+      border-radius: .5rem;
+
+      @include mixins.breakpoint-up(md) {
+        border-radius: 1rem;
+      }
+    }
+
+    &:nth-child(n + 4) {
+      grid-column: span 2;
+    }
+  }
+
+  // section gallery
   &-gallery {
     display: flex;
     flex-direction: column;

@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import { Navigation, Pagination, EffectCreative } from "swiper/modules";
+import { Navigation, Pagination, EffectCreative, Thumbs } from "swiper/modules";
 
 document.querySelectorAll("[data-swiper]")?.forEach((container) => {
   const type = container.dataset.swiper;
@@ -8,6 +8,49 @@ document.querySelectorAll("[data-swiper]")?.forEach((container) => {
   const prev = container.querySelector(".swiper-button-prev");
 
   switch (type) {
+    case "product": {
+      const thumbsSwiper = new Swiper(
+        container.querySelector(".product-hero-thumb .swiper"),
+        {
+          modules: [Navigation, Pagination],
+          direction: "vertical",
+          slidesPerView: 3,
+          spaceBetween: 8,
+          grabCursor: true,
+          watchSlidesProgress: true,
+
+          navigation: {
+            nextEl: next,
+            prevEl: prev,
+          },
+        },
+      );
+
+      new Swiper(container.querySelector(".product-hero-swiper .swiper"), {
+        modules: [Navigation, Pagination, Thumbs],
+        slidesPerView: 1.125,
+        spaceBetween: 16,
+        grabCursor: true,
+
+        thumbs: {
+          swiper: thumbsSwiper,
+        },
+
+        breakpoints: {
+          0: {
+            slidesPerView: 1.125,
+            spaceBetween: 16,
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 24,
+          },
+        },
+      });
+
+      break;
+    }
+
     case "gallery": {
       const nav = container.querySelector(".swiper-navigation");
       const pagination = container.querySelector(".swiper-pagination");

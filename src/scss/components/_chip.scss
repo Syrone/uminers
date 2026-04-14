@@ -1,0 +1,29 @@
+@use "mixins" as mixins;
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .375rem;
+  font-size: .875rem;
+  font-weight: 700;
+  color: var(--light);
+  white-space: nowrap;
+  background-image: radial-gradient(circle, rgba(211, 211, 211, .15) 0%, rgba(157, 157, 157, .15) 100%);
+  border: .0625rem solid rgba(var(--light-rgb), .50);
+  border-radius: 50rem;
+  padding: .5rem 1rem;
+
+  .icon {
+    --_size: 1.5rem;
+  }
+
+  &--water {
+    color: #49B6FF;
+    border-color: rgba(73, 182, 255, .50);
+  }
+
+  &--immersion {
+    color: #00C1AD;
+    border-color: rgba(0, 193, 173, .50);
+  }
+}
