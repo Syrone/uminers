@@ -225,7 +225,8 @@
   }
 
   &--product {
-    background-color: var(--dark);
+    background-color: transparent;
+    background-image: linear-gradient(170deg, rgba(var(--light-rgb), .15) 0%, rgba(204, 204, 204, .15) 50%, rgba(153, 153, 153, .15) 100%);
     padding: 2rem var(--container-offset);
 
     @include mixins.breakpoint-up(lg) {
