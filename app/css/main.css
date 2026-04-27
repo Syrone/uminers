@@ -5022,6 +5022,8 @@ textarea {
   border-radius: inherit;
   -o-object-fit: cover;
   object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
   position: absolute;
   inset: 0;
   z-index: -1;
