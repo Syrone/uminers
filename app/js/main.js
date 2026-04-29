@@ -22235,10 +22235,11 @@ document.querySelectorAll("[data-swiper]")?.forEach(container => {
         const pagination = container.querySelector(".swiper-pagination");
         new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](container.querySelector(".swiper"), {
           modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination],
+          initialSlide: 1,
           slidesPerView: 1.1,
           spaceBetween: 20,
-          centeredSlides: true,
           grabCursor: true,
+          centeredSlides: true,
           navigation: {
             nextEl: next,
             prevEl: prev
@@ -22252,11 +22253,11 @@ document.querySelectorAll("[data-swiper]")?.forEach(container => {
               slidesPerView: 1.1,
               spaceBetween: 20
             },
-            576: {
+            480: {
               slidesPerView: 1.1,
               spaceBetween: 20
             },
-            992: {
+            768: {
               slidesPerView: 1.1,
               spaceBetween: 32
             }
@@ -22381,17 +22382,15 @@ new _functions_transfer_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-document.querySelectorAll("[data-video]").forEach(block => {
-  const video = block.querySelector("video");
-  const btn = block.querySelector(".video-play");
-  const poster = block.querySelector(".video-poster");
-  btn.addEventListener("click", () => {
-    video.play();
-
-    // скрываем постер и кнопку
-    poster.style.display = "none";
-    btn.style.display = "none";
-  });
+document.querySelectorAll("[data-youtube]").forEach(block => {
+  const src = block.dataset.youtube;
+  if (!src) return;
+  const iframe = document.createElement("iframe");
+  iframe.className = "video-media";
+  iframe.src = src;
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+  iframe.allowFullscreen = true;
+  block.appendChild(iframe);
 });
 
 /***/ }),

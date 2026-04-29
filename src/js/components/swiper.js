@@ -138,10 +138,11 @@ document.querySelectorAll("[data-swiper]")?.forEach((container) => {
 
       new Swiper(container.querySelector(".swiper"), {
         modules: [Navigation, Pagination],
+        initialSlide: 1,
         slidesPerView: 1.1,
         spaceBetween: 20,
-        centeredSlides: true,
         grabCursor: true,
+        centeredSlides: true,
         navigation: {
           nextEl: next,
           prevEl: prev,
@@ -156,11 +157,11 @@ document.querySelectorAll("[data-swiper]")?.forEach((container) => {
             slidesPerView: 1.1,
             spaceBetween: 20,
           },
-          576: {
+          480: {
             slidesPerView: 1.1,
             spaceBetween: 20,
           },
-          992: {
+          768: {
             slidesPerView: 1.1,
             spaceBetween: 32,
           },

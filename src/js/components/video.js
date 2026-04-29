@@ -1,13 +1,13 @@
-document.querySelectorAll("[data-video]").forEach((block) => {
-  const video = block.querySelector("video");
-  const btn = block.querySelector(".video-play");
-  const poster = block.querySelector(".video-poster");
+document.querySelectorAll("[data-youtube]").forEach((block) => {
+  const src = block.dataset.youtube;
+  if (!src) return;
 
-  btn.addEventListener("click", () => {
-    video.play();
+  const iframe = document.createElement("iframe");
+  iframe.className = "video-media";
+  iframe.src = src;
+  iframe.allow =
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+  iframe.allowFullscreen = true;
 
-    // скрываем постер и кнопку
-    poster.style.display = "none";
-    btn.style.display = "none";
-  });
+  block.appendChild(iframe);
 });
